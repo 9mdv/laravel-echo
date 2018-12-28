@@ -10,17 +10,6 @@ class Post extends Model
         'title', 'content', 'published'
     ];
 
-<<<<<<< HEAD
-  public function user()
-  {
-    return $this->belongsTo('App\User');
-  }
-
-  public function comments()
-  {
-    return $this->hasMany('App\Comment');
-  }
-=======
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -30,5 +19,4 @@ class Post extends Model
     {
         return $this->hasMany('App\Comment');
     }
->>>>>>> tutorial
 }

@@ -15,11 +15,6 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-<<<<<<< HEAD
-Broadcast::channel('post.{id}', function ($user, $id) {
-    return $user->id == \App\Post::find($id)->user_id;
-=======
 Broadcast::channel('post-.{id}', function ($user, $id) {
     return true;
->>>>>>> tutorial
 });
