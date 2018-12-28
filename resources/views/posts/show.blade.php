@@ -82,14 +82,15 @@
               })
           },
           listen(){
-            // Echo.channel(`post-${this.post.id}`)
-            //   .listen('NewComment', (comment) => {
-            //     this.comments.unshift(comment)
-            //   })
-            Echo.private(`post-${this.post.id}`)
+            Echo.channel(`post-${this.post.id}`)
               .listen('NewComment', (comment) => {
                 this.comments.unshift(comment)
               })
+            // For private channel (see \app\Events\NewComment.php):
+            // Echo.private(`post-${this.post.id}`)
+            //   .listen('NewComment', (comment) => {
+            //     this.comments.unshift(comment)
+            //   })
           }
         }
       })

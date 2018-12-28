@@ -46,16 +46,6 @@ if (token) {
 
 import Echo from 'laravel-echo'
 
-<<<<<<< HEAD
-window.Pusher = require('pusher-js');
-
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '51aaa8133b2080a29f6d',
-    cluster: 'mt1',
-    encrypted: true
-});
-=======
 window.Pusher = require('pusher-js')
 
 window.Echo = new Echo({
@@ -64,4 +54,3 @@ window.Echo = new Echo({
   cluster: 'ap1',
   encrypted: true
 })
->>>>>>> tutorial
