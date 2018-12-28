@@ -26,7 +26,7 @@
         @foreach ($posts as $post)
           <tr>
             <th>{{ $post->id }}</th>
-            <td>{{ $post->title }}</td>
+            <td><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></td>
             <td>{{ $post->published ? "Published" : "Draft" }}</td>
             <td><a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-default">Edit</a></td>
           </tr>

@@ -10,7 +10,11 @@
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+<<<<<<< HEAD
         "pusher/pusher-php-server": "^3.0"
+=======
+        "pusher/pusher-php-server": "^3.2"
+>>>>>>> tutorial
     },
     "require-dev": {
         "filp/whoops": "~2.0",

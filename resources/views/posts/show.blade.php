@@ -20,8 +20,15 @@
       <textarea class="form-control" rows="3" name="body" placeholder="Leave a comment" v-model="commentBox"></textarea>
       <button class="btn btn-success" style="margin-top:10px" @click.prevent="postComment">Save Comment</button>
     </div>
+<<<<<<< HEAD
     <div v-else>
       <h4>You must be logged in to submit a comment!</h4> <a href="/login">Login Now &gt;&gt;</a>
+=======
+
+    <div v-else>
+      <h4>You must be logged in to post a comment.</h4>
+      <a href="/login">Login ➡</a>
+>>>>>>> tutorial
     </div>
 
 
@@ -42,6 +49,7 @@
   </div>
 @endsection
 
+<<<<<<< HEAD
 
 @section('scripts')
   <script>
@@ -91,4 +99,56 @@
     })
 
   </script>
+=======
+@section('scripts')
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          comments: {},
+          commentBox: '',
+          post: {!! $post->toJson() !!},
+          user: {!! Auth::check() ? Auth::user()->toJson() : 'null' !!}
+        },
+        mounted() {
+          this.getComments()
+          this.listen()
+        },
+        methods: {
+          getComments(){
+            axios.get(`/api/posts/${this.post.id}/comments`)
+              .then((response) => {
+                this.comments = response.data
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          },
+          postComment(){
+            axios.post(`/api/posts/${this.post.id}/comment`, {
+              api_token: this.user.api_token,
+              body: this.commentBox
+            })
+              .then((response) => {
+                this.comments.unshift(response.data)
+                this.commentBox = ''
+              })
+              .catch((error) => {
+                console.log(error)
+              })
+          },
+          listen(){
+            // Echo.channel(`post-${this.post.id}`)
+            //   .listen('NewComment', (comment) => {
+            //     this.comments.unshift(comment)
+            //   })
+            Echo.private(`post-${this.post.id}`)
+              .listen('NewComment', (comment) => {
+                this.comments.unshift(comment)
+              })
+          }
+        }
+      })
+    </script>
+>>>>>>> tutorial
 @endsection

@@ -36,7 +36,11 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
+<<<<<<< HEAD
                 'cluster' => 'mt1',
+=======
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+>>>>>>> tutorial
                 'encrypted' => true
             ],
         ],
